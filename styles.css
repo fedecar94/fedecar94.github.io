@@ -1,0 +1,191 @@
+/* https://github.com/altercation/solarized */
+:root {
+    --base03:    #002b36;
+    --base02:    #073642;
+    --base01:    #586e75;
+    --base00:    #657b83;
+    --base0:     #839496;
+    --base1:     #93a1a1;
+    --base2:     #eee8d5;
+    --base3:     #fdf6e3;
+    --yellow:    #b58900;
+    --orange:    #cb4b16;
+    --red:       #dc322f;
+    --magenta:   #d33682;
+    --violet:    #6c71c4;
+    --blue:      #268bd2;
+    --cyan:      #2aa198;
+    --green:     #859900;
+}
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    padding: 1rem;
+}
+
+/* Light theme by default */
+body {
+    background: var(--base3);
+    color: var(--base01);
+}
+
+a {
+    color: var(--blue);
+}
+
+a:active, a:focus, a:hover, a:focus-visible {
+    color: var(--cyan);
+}
+
+a:visited {
+    color: var(--violet);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--yellow);
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 5px solid var(--blue);
+    max-width: 50vw;
+    width: 15rem;
+    margin: 0 auto;
+}
+
+.perfil {
+    grid-area: perfil;
+    padding: 3rem 0;
+}
+.perfil > * {
+    text-align: center;
+    margin: 0.5rem auto;
+}
+.perfil > table {
+    text-align: unset;
+}
+
+.academico {
+    grid-area: academico;
+
+}
+
+.laboral {
+    grid-area: laboral;
+
+}
+
+.extra {
+    grid-area: extra;
+
+}
+
+
+
+/* CARDS */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 75vw;
+    height: 9rem;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    background: var(--base2);
+    color: var(--base02);
+}
+
+.laboral .card {
+    border: 1px solid var(--green);
+}
+
+.academico .card {
+    border: 1px solid var(--cyan);
+}
+
+.card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+.card__title {
+    grid-row: 2/4;
+    font-weight: 400;
+}
+
+.card__subtitle {
+    grid-row: 4/5;
+    align-self: center;
+}
+
+.card__overtitle {
+    align-self: center;
+}
+
+.extra ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.extra ul li {
+    min-width: 10rem;
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas: "perfil perfil"
+                             "academico laboral"
+                             "extra extra";
+        margin: 0 auto;
+        max-width: calc(768px - 2rem);
+    }
+    .perfil {
+        margin: 0 auto;
+    }
+    .avatar {
+        max-width: 10rem;
+    }
+    .card {
+        width: 20rem;
+    }
+
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        grid-template-areas: "perfil academico laboral"
+                             "perfil academico laboral"
+                             "perfil extra extra";
+        max-width: calc(1200px - 2rem);
+    }
+    .perfil {
+        max-width: 20rem;
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: var(--base03);
+        color: var(--base1);
+    }
+    .card {
+        background: var(--base02);
+        color: var(--base2);
+    }
+}
